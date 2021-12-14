@@ -22,7 +22,7 @@ def CreatePlot( CrossSections, BoltzmannDistribution, Energies, scale ):
     ax1.plot( Energies, CrossSections )
     ax1.set_xlabel( "Energy (keV)", fontsize=13, horizontalalignment='right',
                     x=1.0 )
-    ax1.set_ylabel( "Cross Section (barn)", fontsize=13,
+    ax1.set_ylabel( "Cross Section (b)", fontsize=13,
                     horizontalalignment='right', y=1.0 )
     ax1.set_yscale( "log" )
     ax1.set_xlim( left=-10, right=600 )
