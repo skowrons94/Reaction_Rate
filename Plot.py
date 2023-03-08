@@ -5,6 +5,13 @@ import matplotlib.gridspec as gridspec
 plt.rc('xtick', labelsize=20)
 plt.rc('ytick', labelsize=20)
 
+def find_highest( Energies, Gamow ):
+    max_val = 0
+    for idx in range( len( Energies ) ):
+        if( Gamow[idx] > max_val ):
+            max_val = Gamow[idx]
+    return max_val
+
 def CreatePlot( CrossSections, BoltzmannDistribution, Energies, scale ):
 
     CrossSections = np.asarray( CrossSections )
@@ -50,7 +57,8 @@ def CreatePlot( CrossSections, BoltzmannDistribution, Energies, scale ):
     ax3.set_xlim( left=0, right=1000 )
     if( scale == "Log" ):
         ax3.set_yscale( "log" )
-        ax3.set_ylim( bottom=1e-2 )
+        max_val = find_highest( Energies, Gamow )
+        ax3.set_ylim( bottom=max_val/1e10 )
     else:
         ax3.set_yscale( "linear" )
         ax3.set_ylim( bottom=0 )
